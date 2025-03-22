@@ -1,0 +1,140 @@
+REFER below YOUTUBE LINK For CREATING A MONO-REPO and Importing/Cloning the Microservices into the MONO-REPO:
+
+YOUTUBE Link for Mono-Repository: https://www.youtube.com/watch?v=9pRf3VRXEdo
+
+Create the MONO-REPO and Follow the below Steps:
+
+
+PROBLEM 1:
+Creating and using a new repository in Git can help simplify things and avoid conflicts from the existing repository. Here’s how you can set up a new repository and push your project, including all microservice folders, cleanly:
+
+Steps to Push to a New Repository
+1. Create a New Git Repository
+Go to GitHub (or your preferred Git hosting platform).
+
+Create a new repository. For example:
+
+Repository Name: Spring-Boot-Microservices
+
+Leave it empty (do not initialize with a README or .gitignore).
+
+Copy the repository URL (e.g., https://github.com/DEBANKASALUI/Spring-Boot-Microservices.git).
+
+2. Initialize Git in the Local Project
+Navigate to your project folder in Git Bash or your terminal:
+bash:
+cd ~/IdeaProjects/Spring-Boot-Microservices/Proj
+
+Reinitialize Git to ensure a clean setup:
+bash:
+rm -rf .git
+git init
+
+# Removes the old Git history
+# Initializes a new Git repository
+3. Add All Project Files
+Add all the project files and folders (including microservices):
+
+bash:
+git add .
+
+If there are any .git directories inside your microservice folders (e.g., HotelService/.git), remove them before adding:
+
+bash:
+rm -rf HotelService/.git
+rm -rf RatingService/.git
+rm -rf ServiceRegistry/.git
+rm -rf UserServiceApplication/.git
+
+Re-add the folders after cleaning:
+
+bash:
+git add .
+
+4. Commit the Files
+Commit everything with a meaningful message:
+
+bash
+git commit -m "Initial commit of Spring Boot Microservices project"
+
+5. Link the New Repository
+Add your new GitHub repository as the remote origin:
+
+bash
+git remote add origin https://github.com/DEBANKASALUI/Spring-Boot-Microservices.git
+
+6. Push to the New Repository
+Push the code to your new repository:
+
+bash
+git push -u origin master
+
+
+Verify on GitHub
+Open your new repository on GitHub.
+Confirm that all microservice folders (HotelService, RatingService, etc.) and their contents are properly displayed.
+
+7. Optional: Add a .gitignore File
+If you want to exclude unnecessary files (e.g., .idea/ or *.iml), create a .gitignore file in the root directory before committing:
+
+.idea/
+*.iml
+target/
+Stage and commit the .gitignore file:
+
+bash
+git add .gitignore
+git commit -m "Add .gitignore to clean up repository"
+git push
+Let me know once you’ve tried this, and we can take it from there! 😊
+
+
+
+
+
+PROBLEM 2:
+
+everything looks fine but I can see a Proj hyperlink in the new repository want to remove that help me
+The "Proj" hyperlink in your repository likely exists because the Proj folder was mistakenly included as another embedded Git repository (submodule). Let's remove it step by step:
+
+Steps to Remove the Proj Hyperlink from the Repository
+1. Unlink the Submodule
+Run the following command to untrack Proj as a submodule:
+
+bash:
+git rm --cached Proj
+
+2. Delete the .git Directory Inside Proj
+Check if there’s a .git directory inside the Proj folder. If it exists, delete it to remove the submodule reference:
+
+bash:
+rm -rf Proj/.git
+
+3. Re-add the Folder as a Regular Directory (Optional-Not needed direct Commit)
+If you want to keep the contents of the Proj folder as part of your repository, re-add it as a regular folder:
+
+bash:
+git add Proj
+
+
+4. Commit the Changes
+Once the folder is unlinked and properly staged, commit your changes:
+
+bash:
+git commit -m "Remove Proj hyperlink and include as regular folder"
+
+5. Push the Updated Repository
+Push the changes to your remote repository to reflect the update:
+
+bash:
+git push origin master
+
+Verify on GitHub
+After completing these steps, visit your repository on GitHub to confirm that the "Proj" hyperlink is gone. If you opted to keep the Proj folder, its contents should now appear as part of your repository rather than as a hyperlink.
+
+If you need further help, let me know—we’ll get this resolved! 😊
+
+
+
+
+
